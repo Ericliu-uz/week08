@@ -13,6 +13,8 @@ spec:
       labels:
         app: user-service
     spec:
+      nodeSelector:
+        kubernetes.azure.com/mode: user
       containers:
         - name: user-service
           image: placeholder

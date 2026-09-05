@@ -4,6 +4,7 @@ metadata:
   name: course-db-pvc
   namespace: staging
 spec:
+  storageClassName: standardssd-lrs
   accessModes:
     - ReadWriteOnce
   resources:
@@ -26,6 +27,8 @@ spec:
       labels:
         app: course-db
     spec:
+      nodeSelector:
+        kubernetes.azure.com/mode: user
       containers:
         - name: course-db
           image: postgres:16-alpine

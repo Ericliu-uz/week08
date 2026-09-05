@@ -4,6 +4,7 @@ metadata:
   name: lecturer-db-pvc
   namespace: production
 spec:
+  storageClassName: standardssd-lrs
   accessModes:
     - ReadWriteOnce
   resources:
@@ -26,6 +27,8 @@ spec:
       labels:
         app: lecturer-db
     spec:
+      nodeSelector:
+        kubernetes.azure.com/mode: user
       containers:
         - name: lecturer-db
           image: postgres:16-alpine

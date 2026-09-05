@@ -13,6 +13,8 @@ spec:
       labels:
         app: enrollment-service
     spec:
+      nodeSelector:
+        kubernetes.azure.com/mode: user
       containers:
         - name: enrollment-service
           image: placeholder

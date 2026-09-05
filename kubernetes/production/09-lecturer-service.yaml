@@ -13,6 +13,8 @@ spec:
       labels:
         app: lecturer-service
     spec:
+      nodeSelector:
+        kubernetes.azure.com/mode: user
       containers:
         - name: lecturer-service
           image: placeholder
